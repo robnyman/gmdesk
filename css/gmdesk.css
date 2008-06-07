@@ -19,10 +19,10 @@ body {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: #ccc;
-	opacity: 0.8;
+	background: #fff;
+	/*opacity: 0.3;*/
 	z-index: 10;
-	/*display: none;*/
+	display: none;
 }
 
 #update-available-dialog {
@@ -33,13 +33,13 @@ body {
 	text-align: center;
 	margin-left: -80px;
 	z-index: 10;
-	/*display: none;*/
+	display: none;
 }
 
 #update-available-dialog h1 {
 	font: 16px Verdana;
-	color: #fff;
-	background: #415a93;
+	color: #000;
+	background: #c3d9ff;
 	margin: 0;
 	padding: 5px;
 	-webkit-border-radius: 5px;
@@ -47,7 +47,7 @@ body {
 
 #update-content {
 	background: #fff;
-	border: 1px solid #415a93;
+	border: 1px solid #c3d9ff;
 	border-top-width: 10px;
 	margin-top: -10px;
 	padding: 5px;
