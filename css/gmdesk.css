@@ -1,0 +1,54 @@
+a {
+	color: #c3cddf;
+}
+
+a:hover {
+	color: #fff;
+}
+
+body {
+	overflow: hidden;
+	font: 10px Verdana;
+	margin: 0;
+	padding: 0;
+}
+
+#update-available {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+	opacity: 0.8;
+	z-index: 10;
+	/*display: none;*/
+}
+
+#update-available-dialog {
+	position: absolute;
+	left: 50%;
+	top: 150px;
+	width: 250px;
+	text-align: center;
+	margin-left: -80px;
+	z-index: 10;
+	/*display: none;*/
+}
+
+#update-available-dialog h1 {
+	font: 16px Verdana;
+	color: #fff;
+	background: #415a93;
+	margin: 0;
+	padding: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#update-content {
+	background: #fff;
+	border: 1px solid #415a93;
+	border-top-width: 10px;
+	margin-top: -10px;
+	padding: 5px;
+}
