@@ -38,18 +38,7 @@ var gmdesk = function () {
 			var bounds = new air.Rectangle(10, 10, 1000, 750);
 			loader = air.HTMLLoader.createRootWindow(true, initOptions, true, bounds);
 			
-			
-			
 			gmailWindow = air.NativeApplication.nativeApplication.openedWindows[1];
-			
-			try {
-				loader.stage.scaleMode = runtime.flash.display.StageScaleMode.NO_BORDER;
-			}
-			catch (e) {
-				alert(e);
-			}
-			
-			
 			this.getPreferences();
 			this.loadContent(startServiceURL);
 			this.createAppmenu();
