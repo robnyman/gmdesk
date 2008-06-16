@@ -52,3 +52,32 @@ body {
 	margin-top: -10px;
 	padding: 5px;
 }
+
+/* Settings */
+#preferences {
+	background: #ccc;
+	padding: 10px;
+}
+
+#preferences-content {
+	background: #fff;
+	padding: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#preferences-content h1 {
+	font-size: 14px;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+#preferences-content h2 {
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+#preferences-content input[type=text]{
+	width: 300px;
+	margin-left: 5px;
+}

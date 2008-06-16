@@ -26,7 +26,7 @@ var updater = function () {
 			callback : function (response) {
 				var releaseNotesNode = response.getElementsByTagName("releasenotes")[0];
 				if (typeof releaseNotesNode === "object" && releaseNotesNode.firstChild) {
-					releaseNotesText = releaseNotesNode.firstChild.nodeValue;
+					releaseNotesText = releaseNotesNode.firstChild.nodeValue.replace(/BREAK/, "<br>");
 				}
 				var latestVersionNode = response.getElementsByTagName("latestversion")[0];
 				if (typeof latestVersionNode === "object" && latestVersionNode.firstChild) {

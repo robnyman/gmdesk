@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
-	<latestversion>0.9</latestversion>
-	<releasenotes>First official release.</releasenotes>
+	<latestversion>0.95</latestversion>
+	<releasenotes>
+		- Added support for Google Apps mail
+		- Preferences available for choosing service
+		- Window views, including fullscreen, added
+	</releasenotes>
 </application>

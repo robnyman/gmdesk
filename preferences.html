@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Preferences</title>
+	<link rel="stylesheet" href="css/gmdesk.css" type="text/css" />
+	<script type="text/javascript" src="js/AIRAliases.js"></script>
+	<script type="text/javascript" src="js/DOMAssistantComplete.js"></script>
+	<script type="text/javascript" src="js/gmdeskPreferences.js"></script>
+</head>
+<body id="preferences">
+	
+	<div id="preferences-content">
+		<h1>Settings</h1>
+	
+		<form id="preferences-form" action="preferences.html" method="post">
+			<fieldset>
+				<legend>Choose Google mail URL</legend>
+				<p>
+					<input type="radio" id ="regular-gmail" name="mail-url" value="http://mail.google.com/" checked="checked">
+					<label for="regular-gmail">Gmail</label>
+				</p>
+				<p>
+					<input type="radio" id ="google-apps" name="mail-url" value="http://mail.google.com/">
+					<label for="google-apps">Google Apps
+						<input type="text" id="google-apps-url" value="https://mail.google.com/a/">
+					</label>
+				</p>
+				<p>
+					<input type="submit" id="set-url" value="Save">
+				</p>
+			</fieldset>
+		</form>
+	</div>	
+		
+</body>
+</html>
