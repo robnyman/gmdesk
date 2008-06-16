@@ -15,21 +15,34 @@
 	
 		<form id="preferences-form" action="preferences.html" method="post">
 			<fieldset>
-				<legend>Choose Google mail URL</legend>
+				<legend>Select Google services</legend>
 				<p>
-					<input type="radio" id ="regular-gmail" name="mail-url" value="http://mail.google.com/" checked="checked">
-					<label for="regular-gmail">Gmail</label>
+					<input type="radio" id="regular-services" name="regular" value="http://mail.google.com/" checked="checked">
+					<label for="regular-services">Regular: Gmail, Calendar, Docs, Maps</label>
 				</p>
 				<p>
-					<input type="radio" id ="google-apps" name="mail-url" value="http://mail.google.com/">
+					<input type="radio" id="google-apps" name="regular" value="http://mail.google.com/">
 					<label for="google-apps">Google Apps
-						<input type="text" id="google-apps-url" value="https://mail.google.com/a/">
+						<input type="text" id="google-apps-domain" value="Your Google Apps domain, e.g. domassistant.com">
 					</label>
 				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Select startup service</legend>
 				<p>
-					<input type="submit" id="set-url" value="Save">
+					<input type="radio" id="mail" name="startup-service" value="mail" checked="checked">
+					<label for="mail">Google Mail</label>
+					<input type="radio" id="calendar" name="startup-service" value="calendar">
+					<label for="calendar">Google Calendar</label>
+					<input type="radio" id="docs" name="startup-service" value="docs">
+					<label for="docs">Google Docs</label>
+					<input type="radio" id="maps" name="startup-service" value="maps">
+					<label for="maps">Google Maps</label>
 				</p>
 			</fieldset>
+			<p>
+				<input type="submit" id="set-url" value="Save">
+			</p>
 		</form>
 	</div>	
 		

@@ -1,27 +1,43 @@
 /*global air, DOMAssistant, $, $$ */
 var gmdeskPreferences = function () {
-	var googleAppsField = null;
-	var googleAppsCheckbox = null;
+	var gmdesk = window.opener.gmdesk;
+	var googleAppsDomain = null;
 	return {
 		init : function () {
-			var isGoogleApps = location.search.replace(/.*googleApps=(\w+).*/i, "$1") === "true";
-			var mailURL = location.search.replace(/.*mailURL=((http(s)?\:\/\/)?[\w\.\/]+).*/i, "$1");
-			var googleAppsField = $$("google-apps-url");
-			googleAppsCheckbox = $$("google-apps");
-			if (isGoogleApps && googleAppsField) {
-				googleAppsField.value = mailURL;
+			var isGoogleApps = gmdesk.googleApps;
+			var domain = gmdesk.domain;
+			var startService = gmdesk.startService;
+			$("input[name=startup-service][value=" +  startService + "]").each(function () {
+				this.checked = true;
+			});
+			googleAppsDomain = $$("google-apps-domain");
+			var googleAppsCheckbox = $$("google-apps");
+			googleAppsDomain.addEvent("click", function (evt) {
+				if (/Your\sGoogle\sApps\sdomain/i.test(this.value)) {
+					this.select();
+				}
+			});
+			if (isGoogleApps && googleAppsDomain && googleAppsCheckbox) {
+				googleAppsDomain.value = domain;
 				googleAppsCheckbox.checked = true;
 			}
 			$("#preferences-form").addEvent("submit", this.savePreferences);
 		},
 		
 		savePreferences : function () {
-			var url = $$("regular-gmail").value;
-			var googleApps = $$("google-apps").checked;
-			if (googleApps) {
-				url = $$("google-apps-url").value;
+			var regular = $$("regular-services").checked,
+				service = (regular)? "regular" : "googleApps",
+				domain = "None";
+			if (!regular) {
+				domain = googleAppsDomain.value;
 			}
-			window.opener.gmdesk.setPreferences(url, ((googleApps)? "true" : "false"));
+			var startupService = "mail";
+			$("input[name=startup-service]").each(function () {
+				if (this.checked) {
+					startupService = this.value;
+				}
+			});
+			window.opener.gmdesk.setPreferences(service, domain, startupService);
 			window.close();
 			return false;
 		}

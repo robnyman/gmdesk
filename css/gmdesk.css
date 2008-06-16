@@ -77,6 +77,10 @@ body {
 	padding: 0;
 }
 
+#preferences-content fieldset {
+	margin-bottom: 10px;
+}
+
 #preferences-content input[type=text]{
 	width: 300px;
 	margin-left: 5px;
