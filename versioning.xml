@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
-	<latestversion>0.95</latestversion>
+	<latestversion>0.98</latestversion>
 	<releasenotes>
-		- Added support for Google Apps mail
-		- Preferences available for choosing service
-		- Window views, including fullscreen, added
+		- Added support for Google Calendar, Google Docs and Google MapsBREAK
+		- Default start service option added
+		- Keyboard and menu options to switch between Google services
+		<note>- Added support for Google Calendar, Google Docs and Google Maps</note>
+		<note>- Default start service option added</note>
+		<note>- Keyboard and menu options to switch between Google services</note>
 	</releasenotes>
 </application>

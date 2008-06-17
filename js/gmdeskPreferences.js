@@ -22,6 +22,9 @@ var gmdeskPreferences = function () {
 				googleAppsCheckbox.checked = true;
 			}
 			$("#preferences-form").addEvent("submit", this.savePreferences);
+			$("#close").addEvent("click", function () {
+				window.close();
+			});
 		},
 		
 		savePreferences : function () {

@@ -29,19 +29,44 @@
 			</fieldset>
 			<fieldset>
 				<legend>Select startup service</legend>
-				<p>
-					<input type="radio" id="mail" name="startup-service" value="mail" checked="checked">
-					<label for="mail">Google Mail</label>
-					<input type="radio" id="calendar" name="startup-service" value="calendar">
-					<label for="calendar">Google Calendar</label>
-					<input type="radio" id="docs" name="startup-service" value="docs">
-					<label for="docs">Google Docs</label>
-					<input type="radio" id="maps" name="startup-service" value="maps">
-					<label for="maps">Google Maps</label>
-				</p>
+				<div class="col">
+					<p>
+						<input type="radio" id="mail" name="startup-service" value="mail" checked="checked">
+						<label for="mail">
+							<img src="images/mail.png" alt="">
+							Google Mail
+						</label>
+					</p>
+				
+					<p>
+						<input type="radio" id="calendar" name="startup-service" value="calendar">
+						<label for="calendar">
+							<img src="images/calendar.png" alt="">
+							Google Calendar
+						</label>
+					</p>
+				</div>
+				
+				<div class="col">
+					<p>
+						<input type="radio" id="docs" name="startup-service" value="docs">
+						<label for="docs">
+							<img src="images/docs.png" alt="">
+							Google Docs
+						</label>
+					</p>	
+					<p>
+						<input type="radio" id="maps" name="startup-service" value="maps">
+						<label for="maps">
+								<img src="images/google.png" alt="">
+							Google Maps
+						</label>
+					</p>	
+				</div>
 			</fieldset>
 			<p>
 				<input type="submit" id="set-url" value="Save">
+				<input type="button" id="close" value="Close">
 			</p>
 		</form>
 	</div>	
