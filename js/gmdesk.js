@@ -17,7 +17,8 @@ var gmdesk = function () {
 		mail : "http://mail.google.com/",
 		calendar : "http://www.google.com/calendar/render",
 		docs : "http://docs.google.com/",
-		maps : "http://maps.google.com/"
+		maps : "http://maps.google.com/",
+		reader : "http://www.google.com/reader/"
 	};
 	var startServiceURL = apps.mail;
 	var gmailWindow = null;
@@ -119,7 +120,15 @@ var gmdesk = function () {
 			});
 			appsMenuItem.submenu.addItem(maps);
 			
-			menuItems.push(mail, calendar, docs, maps);
+			var reader = new air.NativeMenuItem("Google Reader");
+			reader.keyEquivalent = "5";
+			reader.addEventListener(air.Event.SELECT, function () {
+				checkMenuItem(4);
+				gmdesk.loadContent(apps.reader);
+			});
+			appsMenuItem.submenu.addItem(reader);
+			
+			menuItems.push(mail, calendar, docs, maps, reader);
 			
 			// Help menu
 			var helpMenuItem = root.addItem(new air.NativeMenuItem("Help"));
