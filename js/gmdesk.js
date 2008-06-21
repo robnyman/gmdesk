@@ -55,35 +55,6 @@ var gmdesk = function () {
 			});
 			mainMenuItem.submenu.addItem(quit);
 		
-			// Window menu
-			var windowMenuItem = root.addItem(new air.NativeMenuItem("Window"));
-			windowMenuItem.submenu = new air.NativeMenu();
-
-			var minimize = new air.NativeMenuItem("Minimize");
-			minimize.keyEquivalent = "m";
-			minimize.addEventListener(air.Event.SELECT, function () {
-				gmailWindow.minimize();
-			});
-			windowMenuItem.submenu.addItem(minimize);
-		
-			var maximize = new air.NativeMenuItem("Maximize");
-			maximize.addEventListener(air.Event.SELECT, function () {
-				gmailWindow.maximize();
-			});
-			windowMenuItem.submenu.addItem(maximize);
-		
-			var fullscreen = new air.NativeMenuItem("Fullscreen (Esc to return)");
-			fullscreen.addEventListener(air.Event.SELECT, function () {
-				gmailWindow.stage.displayState = runtime.flash.display.StageDisplayState.FULL_SCREEN_INTERACTIVE;
-			});
-			windowMenuItem.submenu.addItem(fullscreen);
-		
-			var restore = new air.NativeMenuItem("Restore");
-			restore.addEventListener(air.Event.SELECT, function () {
-				gmailWindow.restore();
-			});
-			windowMenuItem.submenu.addItem(restore);
-			
 			// Applications menu
 			var appsMenuItem = root.addItem(new air.NativeMenuItem("Google applications"));
 			appsMenuItem.submenu = new air.NativeMenu();
@@ -129,6 +100,35 @@ var gmdesk = function () {
 			appsMenuItem.submenu.addItem(reader);
 			
 			menuItems.push(mail, calendar, docs, maps, reader);
+			
+			// Window menu
+			var windowMenuItem = root.addItem(new air.NativeMenuItem("Window"));
+			windowMenuItem.submenu = new air.NativeMenu();
+
+			var minimize = new air.NativeMenuItem("Minimize");
+			minimize.keyEquivalent = "m";
+			minimize.addEventListener(air.Event.SELECT, function () {
+				gmailWindow.minimize();
+			});
+			windowMenuItem.submenu.addItem(minimize);
+		
+			var maximize = new air.NativeMenuItem("Maximize");
+			maximize.addEventListener(air.Event.SELECT, function () {
+				gmailWindow.maximize();
+			});
+			windowMenuItem.submenu.addItem(maximize);
+		
+			var fullscreen = new air.NativeMenuItem("Fullscreen (Esc to return)");
+			fullscreen.addEventListener(air.Event.SELECT, function () {
+				gmailWindow.stage.displayState = runtime.flash.display.StageDisplayState.FULL_SCREEN_INTERACTIVE;
+			});
+			windowMenuItem.submenu.addItem(fullscreen);
+		
+			var restore = new air.NativeMenuItem("Restore");
+			restore.addEventListener(air.Event.SELECT, function () {
+				gmailWindow.restore();
+			});
+			windowMenuItem.submenu.addItem(restore);
 			
 			// Help menu
 			var helpMenuItem = root.addItem(new air.NativeMenuItem("Help"));
