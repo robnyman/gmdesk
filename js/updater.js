@@ -27,10 +27,10 @@ var updater = function () {
 				var releaseNotesNode = response.getElementsByTagName("releasenotes")[0];
 				if (typeof releaseNotesNode === "object" && releaseNotesNode.firstChild) {
 					var releaseNotesItems = releaseNotesNode.getElementsByTagName("note");
+					releaseNotesText = releaseNotesNode.firstChild.nodeValue.replace(/BREAK/g, "<br>");
 					for (var i=0, il=releaseNotesItems.length; i<il; i++) {
 						releaseNotesText += releaseNotesItems[i].firstChild.nodeValue + "<br><br>";
 					}
-					releaseNotesText = releaseNotesNode.firstChild.nodeValue.replace(/BREAK/g, "<br>");
 				}
 				var latestVersionNode = response.getElementsByTagName("latestversion")[0];
 				if (typeof latestVersionNode === "object" && latestVersionNode.firstChild) {

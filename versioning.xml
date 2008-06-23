@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
-	<latestversion>0.98</latestversion>
+	<latestversion>0.99</latestversion>
 	<releasenotes>
-		- Added support for Google Calendar, Google Docs and Google MapsBREAK
-		- Default start service option added
-		- Keyboard and menu options to switch between Google services
-		<note>- Added support for Google Calendar, Google Docs and Google Maps</note>
-		<note>- Default start service option added</note>
-		<note>- Keyboard and menu options to switch between Google services</note>
+		- Added support for Google Reader, Picasa Web AlbumsBREAK
+		- (Sorry, still no fix for font size in Gmail. :-( Select Older Version in Gmail, top right, for a slightly better experience)
 	</releasenotes>
 </application>

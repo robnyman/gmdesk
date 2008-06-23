@@ -18,7 +18,8 @@ var gmdesk = function () {
 		calendar : "http://www.google.com/calendar/render",
 		docs : "http://docs.google.com/",
 		maps : "http://maps.google.com/",
-		reader : "http://www.google.com/reader/"
+		reader : "http://www.google.com/reader/",
+		picasa : "http://picasaweb.google.com/"
 	};
 	var startServiceURL = apps.mail;
 	var gmailWindow = null;
@@ -44,7 +45,7 @@ var gmdesk = function () {
 			var preferences = new air.NativeMenuItem("Preferences");
 			preferences.keyEquivalent = ",";
 			preferences.addEventListener(air.Event.SELECT, function () {
-				window.open(("preferences.html"), "settings", "width=450, height=340, left=" + ((screen.width / 2) - 225) + ", top=150");
+				window.open(("preferences.html"), "settings", "width=450, height=370, left=" + ((screen.width / 2) - 225) + ", top=150");
 			});
 			mainMenuItem.submenu.addItem(preferences);
 		
@@ -99,7 +100,15 @@ var gmdesk = function () {
 			});
 			appsMenuItem.submenu.addItem(reader);
 			
-			menuItems.push(mail, calendar, docs, maps, reader);
+			var picasa = new air.NativeMenuItem("Picasa Web Albums");
+			picasa.keyEquivalent = "6";
+			picasa.addEventListener(air.Event.SELECT, function () {
+				checkMenuItem(5);
+				gmdesk.loadContent(apps.picasa);
+			});
+			appsMenuItem.submenu.addItem(picasa);
+			
+			menuItems.push(mail, calendar, docs, maps, reader, picasa);
 			
 			// Window menu
 			var windowMenuItem = root.addItem(new air.NativeMenuItem("Window"));
