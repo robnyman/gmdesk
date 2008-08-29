@@ -178,6 +178,7 @@ var gmdesk = function () {
 	
 	var closeAllWindows = function () {
 		var openedWindows = air.NativeApplication.nativeApplication.openedWindows;
+		gmdesk.setPreferences();
 		for (var i=0, il=openedWindows.length; i<il; i++) {
 			openedWindows[i].close();
 		}
@@ -186,15 +187,21 @@ var gmdesk = function () {
 		googleApps : false,
 		domain : "None",
 		startService : apps.mail,
+		left : 0,
+		top : 0,
+		width : 0,
+		height : 0,
 		
 		init : function () {
 			air.URLRequestDefaults.userAgent = air.URLRequestDefaults.userAgent + " Version\/3.1 Safari\/525.20";
+			this.getPreferences();
+			var windowPrefs = (this.width > 0)? [this.left, this.top, this.width, this.height] : [10, 10, 1000, 750];
+			
 			var initOptions = new air.NativeWindowInitOptions();
-			var bounds = new air.Rectangle(10, 10, 1000, 750);
+			var bounds = new air.Rectangle(windowPrefs[0], windowPrefs[1], windowPrefs[2], windowPrefs[3]);
 			loader = air.HTMLLoader.createRootWindow(true, initOptions, true, bounds);
 			
 			gmailWindow = air.NativeApplication.nativeApplication.openedWindows[1];
-			this.getPreferences();
 			this.loadContent(startServiceURL);
 			createAppmenu();
 			window.visible = false;
@@ -232,6 +239,22 @@ var gmdesk = function () {
 					this.startService = startServiceNode[0].firstChild.nodeValue;
 					startServiceURL = apps[this.startService];
 				}
+				var leftNode = prefsXMLContent.getElementsByTagName("left");
+				if (leftNode.length > 0) {
+					this.left = leftNode[0].firstChild.nodeValue;
+				}
+				var topNode = prefsXMLContent.getElementsByTagName("top");
+				if (topNode.length > 0) {
+					this.top = topNode[0].firstChild.nodeValue;
+				}
+				var widthNode = prefsXMLContent.getElementsByTagName("width");
+				if (widthNode.length > 0) {
+					this.width = widthNode[0].firstChild.nodeValue;
+				}
+				var heightNode = prefsXMLContent.getElementsByTagName("height");
+				if (heightNode.length > 0) {
+					this.height = heightNode[0].firstChild.nodeValue;
+				}
 			}
 		},
 		
@@ -239,9 +262,13 @@ var gmdesk = function () {
 			var le = air.File.lineEnding;
 			var prefsXML = "<?xml version='1.0' encoding='utf-8'?>" + le
 			            + "<preferences>" + le 
-			            + "	<service>" + service + "</service>" + le
-						+ "	<domain>" + domain + "</domain>" + le
-						+ "	<startService>" + startService + "</startService>" + le
+			            + "	<service>" + (service || ((this.googleApps)? "googleApps" : "regular")) + "</service>" + le
+						+ "	<domain>" + (domain || this.domain) + "</domain>" + le
+						+ "	<startService>" + (startService || this.startService) + "</startService>" + le
+						+ "	<left>" + gmailWindow.x + "</left>" + le
+						+ "	<top>" + gmailWindow.y + "</top>" + le
+						+ "	<width>" + gmailWindow.width + "</width>" + le
+						+ "	<height>" + gmailWindow.height + "</height>" + le
 			            + "	<saveDate>" + new Date().toString() + "</saveDate>" + le
 			            + "</preferences>";
 			
@@ -256,7 +283,9 @@ var gmdesk = function () {
 		loadContent : function (url) {
 			loader.load(new air.URLRequest(url || apps.mail));
 			try	{
-				loader.window.moveTo((screen.width / 2) - (loader.window.innerWidth / 2), 50);
+				if (this.width === 0) {
+					loader.window.moveTo((screen.width / 2) - (loader.window.innerWidth / 2), 50);
+				}	
 			}
 			catch (e) {
 				// To prevent potential reference errors
