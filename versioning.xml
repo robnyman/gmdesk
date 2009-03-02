@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
-	<latestversion>0.99</latestversion>
+	<latestversion>1.01</latestversion>
 	<releasenotes>
-		- Added support for Google Reader, Picasa Web AlbumsBREAK
-		- (Sorry, still no fix for font size in Gmail. :-( Select Older Version in Gmail, top right, for a slightly better experience)
+		- Font size in Gmail fixed!
 	</releasenotes>
 </application>
