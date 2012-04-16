@@ -20,6 +20,8 @@ var gmdesk = function () {
 		maps : "http://maps.google.com/",
 		reader : "http://www.google.com/reader/",
 		picasa : "http://picasaweb.google.com/"
+		contacts : "http://www.google.com/contacts",
+		tasks : "http://mail.google.com/tasks/canvas"
 	};
 	var startServiceURL = apps.mail;
 	var gmailWindow = null;
@@ -108,7 +110,23 @@ var gmdesk = function () {
 			});
 			appsMenuItem.submenu.addItem(picasa);
 			
-			menuItems.push(mail, calendar, docs, maps, reader, picasa);
+			var contacts = new air.NativeMenuItem("Google Contacts");
+			contacts.keyEquivalent = "7";
+			contacts.addEventListener(air.Event.SELECT, function () {
+				checkMenuItem(6);
+				gmdesk.loadContent(apps.contacts);
+			});
+			appsMenuItem.submenu.addItem(contacts);
+			
+			var tasks = new air.NativeMenuItem("Google Tasks");
+			tasks.keyEquivalent = "8";
+			tasks.addEventListener(air.Event.SELECT, function () {
+				checkMenuItem(7);
+				gmdesk.loadContent(apps.tasks);
+			});
+			appsMenuItem.submenu.addItem(tasks);
+			
+			menuItems.push(mail, calendar, docs, maps, reader, picasa, contacts, tasks);
 			
 			// Window menu
 			var windowMenuItem = root.addItem(new air.NativeMenuItem("Window"));
