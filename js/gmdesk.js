@@ -19,9 +19,10 @@ var gmdesk = function () {
 		docs : "http://docs.google.com/",
 		maps : "http://maps.google.com/",
 		reader : "http://www.google.com/reader/",
-		picasa : "http://picasaweb.google.com/"
+		picasa : "http://picasaweb.google.com",
 		contacts : "http://www.google.com/contacts",
-		tasks : "http://mail.google.com/tasks/canvas"
+		tasks : "http://mail.google.com/tasks/canvas",
+		plus : "http://plus.google.com"
 	};
 	var startServiceURL = apps.mail;
 	var gmailWindow = null;
@@ -109,7 +110,7 @@ var gmdesk = function () {
 				gmdesk.loadContent(apps.picasa);
 			});
 			appsMenuItem.submenu.addItem(picasa);
-			
+
 			var contacts = new air.NativeMenuItem("Google Contacts");
 			contacts.keyEquivalent = "7";
 			contacts.addEventListener(air.Event.SELECT, function () {
@@ -126,8 +127,16 @@ var gmdesk = function () {
 			});
 			appsMenuItem.submenu.addItem(tasks);
 			
-			menuItems.push(mail, calendar, docs, maps, reader, picasa, contacts, tasks);
+			var plus = new air.NativeMenuItem("Google Plus");
+			plus.keyEquivalent = "9";
+			plus.addEventListener(air.Event.SELECT, function () {
+				checkMenuItem(8);
+				gmdesk.loadContent(apps.plus);
+			});
+			appsMenuItem.submenu.addItem(plus);
 			
+			menuItems.push(mail, calendar, docs, maps, reader, picasa, contacts, tasks, plus);
+						
 			// Window menu
 			var windowMenuItem = root.addItem(new air.NativeMenuItem("Window"));
 			windowMenuItem.submenu = new air.NativeMenu();
