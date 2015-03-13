@@ -1,0 +1,1 @@
+GMDesk helps you run GMail, Google Calendar, Google Docs, Google Maps, Google Reader and Picasa Web Albums in a stand-alone application.
